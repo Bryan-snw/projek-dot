@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MahasiswaController;
+use App\Models\Mahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,8 @@ use App\Http\Controllers\MahasiswaController;
 Route::get('/', function () {
     return view('welcome', [
         'title' => 'Home',
-        'active' => 'home'
+        'active' => 'home',
+        'mahasiswa' => Mahasiswa::all()
     ]);
 });
 
@@ -35,3 +38,4 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('/dashboard/mahasiswa', MahasiswaController::class)->middleware('auth');
+Route::resource('/dashboard/admin', AdminController::class)->except('show')->middleware('auth');

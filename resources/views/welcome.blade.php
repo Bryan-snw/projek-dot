@@ -2,8 +2,8 @@
 
 @section('container')
     <h1>Selamat Datang</h1>
-    {{-- {{ $siswa->count() }} --}}
-    <p>Jumlah data siswa yang tercatat saat ini, berjumlah Siswa</p>
+
+    <p>Jumlah data mahasiswa yang tercatat saat ini, berjumlah {{ $mahasiswa->count() }} mahasiswa</p>
     <div class="table-responsive col-lg-8">
         <table class="table table-striped table-sm">
             <thead>
@@ -15,14 +15,14 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($siswa as $dt)
+                @foreach ($mahasiswa as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $dt->nama }}</td>
                         <td>{{ $dt->jurusan }}</td>
                         <td>{{ $dt->angkatan }}</td>
                     </tr>
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>

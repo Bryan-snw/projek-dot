@@ -15,9 +15,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">
+                <a class="nav-link {{ Request::is('dashboard/admin*') ? 'active' : '' }}" href="/dashboard/admin">
 
-                    Register Admin
+                    Data Admin
                 </a>
             </li>
         </ul>

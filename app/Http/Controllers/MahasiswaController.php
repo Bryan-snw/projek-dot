@@ -68,7 +68,7 @@ class MahasiswaController extends Controller
     {
         return view('dashboard.mahasiswa.show', [
             'title' => "Detail",
-            'mahasiswa' => $mahasiswa
+            'siswa' => $mahasiswa
         ]);
     }
 
