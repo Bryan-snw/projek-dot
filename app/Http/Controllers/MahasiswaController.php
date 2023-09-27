@@ -43,19 +43,22 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+            $validatedData = $request->validate([
+                'nama' => 'required',
+                'jurusan' => 'required',
+                'angkatan' => 'required|Integer',
+                'NIM' => 'required',
+                'last_update_by' => 'required',
+            ]);
 
+            Mahasiswa::create($validatedData);
 
-        $validatedData = $request->validate([
-            'nama' => 'required',
-            'jurusan' => 'required',
-            'angkatan' => 'required|Integer',
-            'NIM' => 'required',
-            'last_update_by' => 'required',
-        ]);
-
-        Mahasiswa::create($validatedData);
-
-        return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah ditambah!");
+            return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah ditambah!");
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect('/dashboard/mahasiswa')->with('failed', 'Terdapat Error!');
+        }
     }
 
     /**
@@ -68,7 +71,7 @@ class MahasiswaController extends Controller
     {
         return view('dashboard.mahasiswa.show', [
             'title' => "Detail",
-            'siswa' => $mahasiswa
+            'mahasiswa' => $mahasiswa
         ]);
     }
 
@@ -96,18 +99,24 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
-        $validatedData = $request->validate([
-            'nama' => 'required',
-            'jurusan' => 'required',
-            'angkatan' => 'required|Integer',
-            'NIM' => 'required',
-            'last_update_by' => 'required',
-        ]);
+        try {
 
-        Mahasiswa::where('id', $mahasiswa->id)
-            ->update($validatedData);
+            $validatedData = $request->validate([
+                'nama' => 'required',
+                'jurusan' => 'required',
+                'angkatan' => 'required|Integer',
+                'NIM' => 'required',
+                'last_update_by' => 'required',
+            ]);
 
-        return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah diupdate!");
+            Mahasiswa::where('id', $mahasiswa->id)
+                ->update($validatedData);
+
+            return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah diupdate!");
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect('/dashboard/mahasiswa')->with('failed', 'Terdapat Error!');
+        }
     }
 
     /**
@@ -118,8 +127,14 @@ class MahasiswaController extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        Mahasiswa::destroy($mahasiswa->id);
+        try {
 
-        return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah dihapus!");
+            Mahasiswa::destroy($mahasiswa->id);
+
+            return redirect('/dashboard/mahasiswa')->with('success', "Data mahasiswa telah dihapus!");
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect('/dashboard/mahasiswa')->with('failed', 'Terdapat Error!');
+        }
     }
 }

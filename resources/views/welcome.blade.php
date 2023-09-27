@@ -1,9 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Selamat Datang</h1>
-
-    <p>Jumlah data mahasiswa yang tercatat saat ini, berjumlah {{ $mahasiswa->count() }} mahasiswa</p>
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-6">
+            <form action="/" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" value="{{ request('search') }}" placeholder="Search..."
+                        name="search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="table-responsive col-lg-8">
         <table class="table table-striped table-sm">
             <thead>

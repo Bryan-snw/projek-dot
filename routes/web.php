@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MahasiswaController;
 use App\Models\Mahasiswa;
@@ -18,13 +18,7 @@ use App\Models\Mahasiswa;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'title' => 'Home',
-        'active' => 'home',
-        'mahasiswa' => Mahasiswa::all()
-    ]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

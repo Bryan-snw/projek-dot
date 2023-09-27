@@ -41,18 +41,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        try {
 
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:8|max:255'
-        ]);
+            $validatedData = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns|unique:users',
+                'password' => 'required|min:8|max:255'
+            ]);
 
-        $validatedData['password'] = Hash::make($validatedData['password']);
+            $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
+            User::create($validatedData);
 
-        return redirect('/dashboard/admin')->with('success', 'New User Created!');
+            return redirect('/dashboard/admin')->with('success', 'New User Created!');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect('/dashboard/admin')->with('failed', 'Terdapat Error!');
+        }
     }
 
     /**
@@ -74,9 +79,6 @@ class AdminController extends Controller
     public function edit(User $user, $id)
     {
         $user = User::where('id', $id)->get();
-
-
-
         return view('dashboard.admin.edit', [
             'title' => 'Edit Admin',
             'user' => $user

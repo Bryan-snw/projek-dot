@@ -33,7 +33,7 @@
                         <td>{{ $dt->NIM }}</td>
                         <td>{{ $dt->jurusan }}</td>
                         <td>{{ $dt->angkatan }}</td>
-                        <td>{{ $dt->lastUpdateBy->nama }}</td>
+                        <td>{{ $dt->lastUpdateBy->name }}</td>
                         <td>
                             <a href="/dashboard/mahasiswa/{{ $dt->id }}" class="text-white badge bg-info">
                                 Lihat

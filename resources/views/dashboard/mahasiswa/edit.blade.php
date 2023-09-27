@@ -56,11 +56,14 @@
                 <label for="jurusan">jurusan</label>
                 <select class="form-control" id="jurusan" name="jurusan">
                     <option selected value={{ $mahasiswa->jurusan }}>{{ $mahasiswa->jurusan }}</option>
-                    @if ($mahasiswa->jurusan === 'IPA')
-                        <option value="IPS">IPS</option>
-                    @else
-                        <option value="IPA">IPA</option>
-                    @endif
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Bisnis Digital">Bisnis Digital</option>
+                    <option value="Psikologi">Psikologi</option>
+                    <option value="Akuntansi">Akuntansi</option>
+                    <option value="Ekonomi">Ekonomi</option>
+                    <option value="Hukum">Hukum</option>
+
                 </select>
             </div>
 

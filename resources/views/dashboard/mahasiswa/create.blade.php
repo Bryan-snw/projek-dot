@@ -50,8 +50,13 @@
         <div class="form-group">
             <label for="jurusan">jurusan</label>
             <select class="form-control" id="jurusan" name="jurusan">
-                <option value="IPA">IPA</option>
-                <option value="IPS">IPS</option>
+                <option selected value="Teknik Informatika">Teknik Informatika</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+                <option value="Bisnis Digital">Bisnis Digital</option>
+                <option value="Psikologi">Psikologi</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Hukum">Hukum</option>
             </select>
         </div>
 

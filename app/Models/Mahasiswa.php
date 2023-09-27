@@ -12,6 +12,11 @@ class Mahasiswa extends Model
     protected $guarded = ['id'];
     protected $with = ['lastUpdateBy'];
 
+    public function scopeFilter($query, $filter)
+    {
+        $query->where('nama', 'like', '%' . $filter . '%')->orderBy('nama', 'asc');
+    }
+
     public function lastUpdateBy()
     {
         return $this->belongsTo(User::class, 'last_update_by');
