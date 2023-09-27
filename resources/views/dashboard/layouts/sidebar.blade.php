@@ -8,12 +8,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/jurusan*') ? 'active' : '' }} " href="/dashboard/siswa">
-                    Data Jurusan
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/mahasiswa*') ? 'active' : '' }} " href="/dashboard/siswa">
+                <a class="nav-link {{ Request::is('dashboard/mahasiswa*') ? 'active' : '' }} "
+                    href="/dashboard/mahasiswa">
 
                     Data Mahasiswa
                 </a>

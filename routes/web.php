@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
+use App\Http\Controllers\MahasiswaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +28,10 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index', [
+        'title' => 'Dashboard',
+    ]);
 })->middleware('auth');
+
+
+Route::resource('/dashboard/mahasiswa', MahasiswaController::class)->middleware('auth');
