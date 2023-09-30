@@ -18,9 +18,9 @@ Database Mahasiswa:
 - Jurusan
 - last Update By
 
-Relasi 
-Table User HasMany Table Mahasiswa
-Table Mahasiswa BelongsTo Table User
+Relasi
+- Table User HasMany Table Mahasiswa
+- Table Mahasiswa BelongsTo Table User
 
 ## Screenshot Aplikasi
 
@@ -28,30 +28,7 @@ Screenshot dari aplikasi yang menunjukkan fitur-fitur utama.
 
 ## Dependency
 
-Daftar package atau library yang diperlukan untuk menjalankan proyek.
+- Php: "^7.3|^8.0",
+- Laravel: 8
 
-## Informasi Lain
-
-Informasi lain yang dapat membantu developer melanjutkan proyek, seperti:
-
-* Panduan instalasi
-* Panduan penggunaan
-* Daftar bug yang diketahui
-* Rencana pengembangan
-
-## Instalasi
-
-Langkah-langkah untuk menginstal proyek.
-
-## Penggunaan
-
-Panduan untuk menggunakan proyek.
-
-## Bug
-
-Daftar bug yang diketahui.
-
-## Pengembangan
-
-Rencana pengembangan untuk proyek.
 
