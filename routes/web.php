@@ -28,8 +28,8 @@ Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Dashboard',
     ]);
-})->middleware('auth');
+})->middleware('auth:sanctum')->name('dashboard');
 
 
-Route::resource('/dashboard/mahasiswa', MahasiswaController::class)->middleware('auth');
-Route::resource('/dashboard/admin', AdminController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/mahasiswa', MahasiswaController::class)->middleware('auth:sanctum');
+Route::resource('/dashboard/admin', AdminController::class)->except('show')->middleware('auth:sanctum');
